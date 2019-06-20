@@ -9,11 +9,13 @@
 
 import './style.scss';
 import './editor.scss';
+import apiFetch from '@wordpress/api-fetch';
 
 const { __ } = wp.i18n; 
 const { registerBlockType, InspectorControls } = wp.blocks; 
 const { SelectControl } = wp.components;
 const { Component } = wp.element
+
 
 class selectPosts extends Component {
 	static getInitialState(selectedPost) {
@@ -40,7 +42,8 @@ class selectPosts extends Component {
 	}
 	
 	getOptions() {
-		return (new wp.api.collections.Posts()).fetch().then((posts) => {
+		return (
+			apiFetch({ path: '/wp-json/wp/v2/posts' } ).then((posts) => {
 			if(posts && 0 !== this.state.selectedPost) {
 				const post = posts.find((item) => {
 					return item.id == this.state.selectedPost;
