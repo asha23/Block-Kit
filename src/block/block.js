@@ -6,11 +6,12 @@
  */
 
 //  Import CSS.
+
 import './style.scss';
 import './editor.scss';
 
-const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
+const { __ } = wp.i18n; 
+const { registerBlockType } = wp.blocks; 
 
 /**
  * Register: aa Gutenberg Block.
@@ -28,10 +29,9 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 
  
 registerBlockType( 'ash/block-test-block', {
-	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Test Block' ), // Block title.
-	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'Test Block' ),
+	icon: 'shield', 
+	category: 'common', 
 	keywords: [
 		__( 'Test Block' )
 	],
@@ -44,6 +44,8 @@ registerBlockType( 'ash/block-test-block', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
+	
+	 
 	edit: function( props ) {
 		// Creates a <p class='wp-block-cgb-block-test-block'></p>.
 		return (
