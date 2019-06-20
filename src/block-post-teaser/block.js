@@ -43,16 +43,17 @@ class selectPosts extends Component {
 	
 	getOptions() {
 		return (
-			apiFetch({ path: '/wp-json/wp/v2/posts' } ).then((posts) => {
-			if(posts && 0 !== this.state.selectedPost) {
-				const post = posts.find((item) => {
-					return item.id == this.state.selectedPost;
-				})
-				this.setState({post, posts});
-			} else {
-				this.setState(posts);
-			}
-		});
+			apiFetch( { path: '/wp-json/wp/v2/posts' } ).then( (posts) => {
+				if(posts && 0 !== this.state.selectedPost) {
+					const post = posts.find((item) => {
+						return item.id == this.state.selectedPost;
+					})
+					this.setState({post, posts});
+				} else {
+					this.setState(posts);
+				}
+			})
+		)
 	}
 	
 	constructor() {

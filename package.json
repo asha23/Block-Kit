@@ -9,5 +9,8 @@
   },
   "dependencies": {
     "cgb-scripts": "1.18.1"
+  },
+  "devDependencies": {
+    "@wordpress/api-fetch": "^3.3.0"
   }
 }
